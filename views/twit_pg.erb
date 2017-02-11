@@ -1,0 +1,167 @@
+
+<body>
+
+<form action="/logout" method="post"  style="float: right;">
+<input type ="submit" value="LOG OUT"/>
+</form>
+
+<h1>Hi <%= user.email %></h1>
+<br> YOU FOLLOW THESE PEOPLE -
+<br>
+<ol>
+<% friends.each do |x| %>
+<li>
+<%= x %>
+</li>
+<br>
+<% end %>
+</ol?
+<hr>
+
+<br><br><br>
+
+
+<form action="/add_status" method="post">
+<input type="text" name="content"/><br>
+<input type ="submit" value="POST STATUS"/>
+</form>
+
+<form action="/find_friend" method="post" style="float: right;">
+<input type="text" name="findFriend"/><br>
+<input type ="submit" value="Find"/>
+</form>
+<br><br><br><br><br><br><br>
+<hr>
+<br><br><br>
+<ul>
+<% status.each do |x| %>
+<br>
+<li class="center">
+<%= x.content %><br><br>
+<p>Upvotes = <%= x.Upvotes %> <br>
+Downvotes = <%= x.Downvotes %> <br>
+</p>
+<form class="sideBySideForm" action="/edit_status" method="post">
+<input type="text" name="edited_content"/><br><br>
+<input type="hidden" name="status_id" value="<%= x.status_id %>"/>
+<input type ="submit" value="EDIT STATUS">
+</form>
+
+<form class="sideBySideForm" action="/delete_status" method="post">
+<input type="hidden" name="status_id" value="<%= x.status_id %>"/>
+<input type ="submit" value="DELETE Status">
+</form>
+</li>
+<br><hr>
+<% end %>
+</ul>
+<hr>
+FRIENDS STATUSES - <br>
+<% i=0 %>
+<ul>
+<% friendsStatuses.each do |x| %>
+<li class="greennotdone">
+<%= friends[i] %> has these status <br><br>
+<ul> 
+<% x.each do |y| %>
+<li class="friendsStat">
+<br>
+<%= y.content %><br><br>
+<p>Upvotes = <%= y.Upvotes %> <br>
+Downvotes = <%= y.Downvotes %> <br>
+</p>
+<form class="sideBySideForm" action="/upvote" method="post">
+<input type="hidden" name="status_id" value="<%= y.status_id %>"/>
+<input type="hidden" name="user_id" value="<%= y.user_id %>"/>
+<input type ="submit" value="UPVOTE">
+</form>
+
+<form class="sideBySideForm" action="/downvote" method="post">
+<input type="hidden" name="status_id" value="<%= y.status_id %>"/>
+<input type="hidden" name="user_id" value="<%= y.user_id %>"/>
+<input type ="submit" value="DownVote">
+</form>
+</li>
+<br>
+
+
+<% end %>
+</ul>
+<hr>
+<% i=i+1 %>
+</li>
+<% end %>
+</ul>
+</body>
+<style>
+	
+	.friendsStat{
+	    text-align: center;
+	    margin: auto;
+	    width: 40%;
+	    border: 3px solid green;
+	    padding: 5px;
+	background-color: yellow;
+	}
+
+	.center {
+	    margin: auto;
+	    width: 50%;
+	    border: 3px solid green;
+	    padding: 10px;
+	background-color: pink;
+	}
+	h1 {
+	text-align: center;
+	color: red;
+	}
+	p {
+	text-align: center;
+	color: blue;
+	font-weight: italic;
+	 font-size: 100%;
+	text-shadow: 0px 0px #00FF00;
+	
+	background-color: magenta;
+	}
+	body {
+    	background-color: lightblue;
+	}
+	.strikethrough{
+	text-decoration: line-through;
+	color: black;
+	}
+	
+	.reddone{
+	text-decoration: line-through;
+	color: red;
+	}
+	
+	.rednotdone{
+	color: red;
+	}
+	
+	.greendone{
+	text-decoration: line-through;
+	color: green;
+	}
+	
+	.greennotdone{
+	font-weight: bold;
+	 font-size: 150%;
+	text-shadow: 2px 2px #00FF00;
+	color: green;
+	}
+
+	.bluedone{
+	text-decoration: line-through;
+	color: blue;
+	}
+	
+	.bluenotdone{
+	color: blue;
+	}
+	.sideBySideForm{
+	display: inline-block;
+	}
+</style>

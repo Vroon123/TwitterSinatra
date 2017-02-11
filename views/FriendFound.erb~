@@ -1,0 +1,63 @@
+<body>
+<% if user %>
+<h1>Friend Found</h1>
+USER ID = <%= user.id %>
+<br><hr><br>
+<form  action="/follow" method="post"  >
+<input type="hidden" name="friendID" value="<%= user.id %>"/>
+<input type ="submit" value="FOLLOW <%= user.email %>"/>
+</form>
+<% else %>
+<h1>Friend Not Found</h1>
+<% end %>
+</body>
+<style>
+
+	.center {
+	    margin: auto;
+	    width: 50%;
+	    border: 3px solid green;
+	    padding: 10px;
+	}
+	h1 {
+	text-align: left;
+	color: green;
+	}
+	body {
+    	background-color: lightblue;
+	}
+	.strikethrough{
+	text-decoration: line-through;
+	color: black;
+	}
+	
+	.reddone{
+	text-decoration: line-through;
+	color: red;
+	}
+	
+	.rednotdone{
+	color: red;
+	}
+	
+	.greendone{
+	text-decoration: line-through;
+	color: green;
+	}
+	
+	.greennotdone{
+	color: green;
+	}
+
+	.bluedone{
+	text-decoration: line-through;
+	color: blue;
+	}
+	
+	.bluenotdone{
+	color: blue;
+	}
+	.sideBySideForm{
+	display: inline-block;
+	}
+</style>

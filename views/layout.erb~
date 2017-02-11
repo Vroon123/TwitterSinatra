@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>TWITTER</title>
+</head>
+
+<body>
+
+<header>
+	<h1> FARZI TWITTER </h1>
+
+
+</header>
+	
+	<%= yield %>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<footer>
+	 Copyright of Varun Panthri #SwagMeraDesi
+</footer>
+</body>
+
+</html>

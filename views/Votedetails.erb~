@@ -1,0 +1,40 @@
+<form action="/" method="get"  style="float: right;">
+<input type ="submit" value="BACK TO home page"/>
+</form>
+<br><br>
+UPVOTES
+<br><br>
+<% upvoters.each do |x| %>
+<ul>
+<li class="rednotdone">
+<br>
+<%= x.email %> upvoted
+<br><br>
+</li>
+
+<% end %>
+</ul>
+<hr>
+<br><br>
+DOWNVOTES
+<% downvoters.each do |x| %>
+<ul>
+<li class="rednotdone">
+<br>
+<%= x.email %> downvoted
+<br><br>
+</li>
+</ul>
+<% end %>
+<style>
+
+	.reddone{
+	text-decoration: line-through;
+	color: red;
+	}
+	
+	.rednotdone{
+	color: red;
+	}
+	
+</style>

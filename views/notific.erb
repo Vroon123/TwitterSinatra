@@ -1,0 +1,31 @@
+<form action="/" method="get"  style="float: right;">
+<input type ="submit" value="BACK TO home page"/>
+</form>
+
+<% notifs.each do |x| %>
+<ul>
+<li>
+<br>
+<%= x.type %>
+<br><br>
+<form action="/remove_notif" method="get"  >
+<input type ="hidden" name="notif_id" value="<%= x.notif_id %>"/>
+<input type ="submit" value="REMOVE NOTIF"/>
+</form>
+
+</li>
+<hr>
+</ul>
+<% end %>
+<style>
+
+	.reddone{
+	text-decoration: line-through;
+	color: red;
+	}
+	
+	.rednotdone{
+	color: red;
+	}
+	
+</style>
